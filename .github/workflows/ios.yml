@@ -21,7 +21,7 @@ jobs:
 
       - name: Create IPA
         run: |
-          xcodebuild -exportArchive -archivePath $PWD/build/kfd.xcarchive -exportPath $PWD/build -exportOptionsPlist ExportOptions.plist -allowProvisioningUpdates CODE_SIGNING_ALLOWED=NO
+          xcodebuild -exportArchive -archivePath $PWD/build/kfd.xcarchive -exportPath $PWD/build -exportOptionsPlist ExportOptions.plist CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
 
 
       - name: Archive artifacts
