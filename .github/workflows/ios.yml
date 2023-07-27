@@ -13,11 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install CocoaPods
-        run: |
-          gem install cocoapods
-          pod install
-
       - name: Build and Archive
         run: |
           xcodebuild archive -workspace kfd.xcworkspace -scheme kfd -archivePath $PWD/build/kfd.xcarchive CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -sdk iphoneos
