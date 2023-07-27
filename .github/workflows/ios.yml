@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ipa
-          path: ~/Library/Developer/Xcode/DerivedData/MyApp-*/Build/Products/Release-iphoneos/*.ipa
+          path: ~/Library/Developer/Xcode/DerivedData/*-*/Build/Products/*-iphoneos/*.ipa
       - name: Test
         env:
           scheme: ${{ 'default' }}
