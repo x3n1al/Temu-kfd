@@ -30,13 +30,13 @@ jobs:
           if [ $scheme = default ]; then scheme=$(cat default); fi
           if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-          xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -scheme "$scheme" -sdk iphoneos -"$filetype_parameter" "$file_to_build" -archivePath dank.xarchive archive
-          xcodebuild -exportArchive -archivePath dank.xarchive -exportPath builtipa -exportOptionsPlist ExportOptions.plist
+          xcodebuild CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO -scheme "$scheme" -sdk iphoneos -"$filetype_parameter" "$file_to_build" -archivePath ~/dank.xarchive archive
+          xcodebuild -exportArchive -archivePath ~/dank.xarchive -exportPath ~/builtipa -exportOptionsPlist ExportOptions.plist
       - name: Save IPA
         uses: actions/upload-artifact@v3
         with:
           name: ipa
-          path: builtipa/*
+          path: ~/builtipa/*
       - name: Test
         env:
           scheme: ${{ 'default' }}
