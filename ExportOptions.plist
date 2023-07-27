@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
     <key>method</key>
-    <string>enterprise</string>
+    <string>development</string>
+    <key>teamID</key>
+    <string>5Y4W494JU2</string>
 </dict>
 </plist>
